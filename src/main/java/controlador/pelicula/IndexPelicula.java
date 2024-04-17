@@ -37,7 +37,7 @@ public class IndexPelicula extends HttpServlet {
 		
 		request.setAttribute("peliculas", peliculas);
 		
-		response.getWriter().append("IndexPeliculas.jsp").append(request.getContextPath());
+		request.getRequestDispatcher("IndexPeliculas.jsp").forward(request, response);
 	}
 
 	/**

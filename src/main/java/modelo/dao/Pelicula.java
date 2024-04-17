@@ -44,12 +44,12 @@ public class Pelicula {
 		this.director = director;
 	}
 
-	public String getDescripccion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripccion(String descripccion) {
-		this.descripcion = descripccion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public Date getFechaProduccion() {
@@ -67,5 +67,7 @@ public class Pelicula {
 	public void setReparto(ArrayList<String> reparto) {
 		this.reparto = reparto;
 	}
+
+
 
 }

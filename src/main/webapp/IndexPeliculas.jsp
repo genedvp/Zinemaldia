@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +17,11 @@
     		           <table class="table">
                         <thead>
                           <tr>
-                            <th scope="">id</th>
+                            <th scope="col">id</th>
                             <th scope="col">titulo</th>
                             <th scope="col">director</th>
                             <th scope="col">descripcion</th>
-                            <th scope="col">fecha de produccion</th>
+                           	<!-- <th scope="col">fecha de produccion</th> -->
                             <th></th>
                           </tr>
                         </thead>
@@ -31,11 +32,11 @@
                             <td>${pelicula.titulo}</td>
                             <td>${pelicula.director}</td>
                             <td>${pelicula.descripcion}</td>
-                            <td>${pelicula.fechaProduccion}</td>
+                       <!-- <td>${pelicula.fechaProduccion}</td> -->
                             <td>
-                            	<a href="ShowPelicula?id=${pelicula.id}">Ver</a>
-                            	<a href="EditPelicula?id=${pelicula.id}">Modificar</a>
-                            	<a href="DestroyPelicula?id=${pelicula.id}">Eliminar</a>                            	
+                            	<a href="ShowPelicula?id=${pelicula.idPelicula}">Ver</a>
+                            	<a href="EditPelicula?id=${pelicula.idPelicula}">Modificar</a>
+                            	<a href="DestroyPelicula?id=${pelicula.idPelicula}">Eliminar</a>                            	
                             </td>
                           </tr>
                           </c:forEach>

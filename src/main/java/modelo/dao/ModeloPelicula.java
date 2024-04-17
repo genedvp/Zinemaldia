@@ -18,8 +18,8 @@ public class ModeloPelicula extends Conector{
 	                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
 	                pelicula.setTitulo(rs.getString("titulo"));
 	                pelicula.setDirector(rs.getString("director"));
-	                pelicula.setDescripccion(rs.getString("descripcion"));
-	                pelicula.setFechaProduccion(rs.getDate("fecha_produccion"));
+	                pelicula.setDescripcion(rs.getString("descripcion"));
+//	                pelicula.setFechaProduccion(rs.getDate("fecha_produccion"));
 	                
 	                peliculas.add(pelicula);
 	            }
