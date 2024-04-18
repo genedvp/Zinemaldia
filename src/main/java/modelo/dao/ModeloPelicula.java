@@ -73,7 +73,7 @@ public class ModeloPelicula extends Conector{
 
 	public int updatePelicula(Pelicula pelicula) {
 	     try {
-	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ? descripcion = ? WHERE id = ?");
+	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ?, descripcion = ? WHERE id_pelicula = ?");
 	         
 	         pst.setString(1, pelicula.getTitulo());
 	         pst.setString(2, pelicula.getDirector());

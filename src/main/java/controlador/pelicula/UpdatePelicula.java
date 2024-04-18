@@ -48,6 +48,7 @@ public class UpdatePelicula extends HttpServlet {
 		Pelicula pelicula = new Pelicula();
 		pelicula.setIdPelicula(idPelicula);
 		pelicula.setTitulo(titulo);
+		pelicula.setDirector(director);
 		pelicula.setDescripcion(descripcion);
 	//	pelicula.setFechaProduccion(fechaProduccion);
 		
