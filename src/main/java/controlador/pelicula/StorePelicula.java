@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.ModeloPelicula;
+import modelo.dao.Pelicula;
+
 /**
  * Servlet implementation class StorePelicula
  */
@@ -34,8 +37,25 @@ public class StorePelicula extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		//recibir datos tarea
+		String titulo = request.getParameter("titulo");
+		String director = request.getParameter("director");
+		String descripcion = request.getParameter("descripcion");
+	//  Date fechaProduccion = request.getParameter("fechaProduccion");	
+		
+		//almacenar pelicula
+		Pelicula pelicula = new Pelicula();
+		pelicula.setTitulo(titulo);
+		pelicula.setDirector(director);
+		pelicula.setDescripcion(descripcion);
+	//	pelicula.setFechaProduccion(fechaProduccion);
+		
+		ModeloPelicula mp = new ModeloPelicula();
+		mp.insertPelicula(pelicula);
+		
+		//abrir inicio redirigiendo
+		response.sendRedirect("IndexPelicula");
+		
 	}
 
 }
