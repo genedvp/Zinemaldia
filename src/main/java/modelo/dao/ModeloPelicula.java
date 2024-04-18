@@ -46,7 +46,7 @@ public class ModeloPelicula extends Conector{
 			    pelicula.setTitulo(rs.getString("titulo"));
 			    pelicula.setDirector(rs.getString("director"));
 			    pelicula.setDescripcion(rs.getString("descripcion"));
-//          pelicula.setFechaProduccion(rs.getDate("fecha_produccion"));
+//         		pelicula.setFechaProduccion(rs.getDate("fecha_produccion"));
 			    
 			    return pelicula;
 			
@@ -57,5 +57,18 @@ public class ModeloPelicula extends Conector{
 		}
 		return null;
 	}
+	
+	public boolean deletePelicula(int id) {
+	     try {
+	         PreparedStatement pst = this.conexion.prepareStatement("DELETE FROM peliculas WHERE id_pelicula=?");
+	         pst.setInt(1, id);
+	         pst.execute();
+	         return true;
+	     } catch (SQLException e) {
+	         e.printStackTrace();
+	         return false;
+	     }
+	}
+	
 }
 
