@@ -37,7 +37,7 @@ public class IndexPelicula extends HttpServlet {
 		
 		request.setAttribute("peliculas", peliculas);
 		
-		request.getRequestDispatcher("IndexPeliculas.jsp").forward(request, response);
+		request.getRequestDispatcher("IndexPelicula.jsp").forward(request, response);
 	}
 
 	/**

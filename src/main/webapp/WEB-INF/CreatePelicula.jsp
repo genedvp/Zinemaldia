@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Modificar pelicula</title>
+<title>Crear Pelicula</title>
 </head>
 <body>
 	<div class="container">
@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <form action="UpdatePelicula" method="POST">
+                    <form action="StorePelicula" method="POST">
                     	<input type="hidden" name="idPelicula" value="${pelicula.idPelicula}"/>
 						Titulo: <input type="text" name="titulo" value="${pelicula.titulo}"/>
 						Director: <input type="text" name="director" value="${pelicula.director}"/>

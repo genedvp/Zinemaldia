@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
+
 public class ModeloPelicula extends Conector{
 
 	public ArrayList<Pelicula> getTodos() {
@@ -69,6 +70,34 @@ public class ModeloPelicula extends Conector{
 	         return false;
 	     }
 	}
+
+	public int updatePelicula(Pelicula pelicula) {
+	     try {
+	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ? descripcion = ? WHERE id = ?");
+	         
+	         pst.setString(1, pelicula.getTitulo());
+	         pst.setString(2, pelicula.getDirector());
+	         pst.setString(3, pelicula.getDescripcion());
+	       //pst.setDate(4, pelicula.getFechaProduccion()); 
+	         pst.setInt(4, pelicula.getIdPelicula());
+	        
+	         return pst.executeUpdate();
+	     } catch (SQLException e) {
+	         e.printStackTrace();
+	         return 0;
+	     }
+	}
 	
+	 public void insertPelicula(Pelicula pelicula) {
+		    try {
+		        PreparedStatement pst = this.conexion.prepareStatement("INSERT INTO peliculas (titulo, director, descripcion) VALUES (?, ?, ?)");
+		        pst.setString(1, pelicula.getTitulo());
+		        pst.setString(2, pelicula.getDirector());
+		        pst.setString(3, pelicula.getDescripcion());
+		        pst.execute();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		}
 }
 

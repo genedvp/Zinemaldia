@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.ModeloPelicula;
-import modelo.dao.Pelicula;
-
 /**
- * Servlet implementation class UpdatePelicula
+ * Servlet implementation class StorePelicula
  */
-@WebServlet("/UpdatePelicula")
-public class UpdatePelicula extends HttpServlet {
+@WebServlet("/StorePelicula")
+public class StorePelicula extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdatePelicula() {
+    public StorePelicula() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,26 +34,8 @@ public class UpdatePelicula extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Recibir datos pelicula
-		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
-		String titulo = request.getParameter("titulo");
-		String director = request.getParameter("director");
-		String descripcion = request.getParameter("descripcion");
-	//	String fechaProduccion = request.getParameter("fehaProduccion");
-		
-		//guardar peli en bbdd
-		Pelicula pelicula = new Pelicula();
-		pelicula.setIdPelicula(idPelicula);
-		pelicula.setTitulo(titulo);
-		pelicula.setDescripcion(descripcion);
-	//	pelicula.setFechaProduccion(fechaProduccion);
-		
-		ModeloPelicula mp = new ModeloPelicula();
-		mp.updatePelicula(pelicula);
-		
-		//enviar a index peliculas
-		response.sendRedirect("IndexPelicula");
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

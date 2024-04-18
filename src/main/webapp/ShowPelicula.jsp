@@ -12,7 +12,7 @@
 	 <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="IndexPeliculas">Volver</a>
+                    <a href="IndexPelicula">Volver</a>
                 </div>
             </div>
             <div class="row">
