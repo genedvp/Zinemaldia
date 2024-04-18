@@ -34,9 +34,9 @@
                             <td>${pelicula.descripcion}</td>
                        <!-- <td>${pelicula.fechaProduccion}</td> -->
                             <td>
-                            	<a href="ShowPelicula?id=${pelicula.idPelicula}">Ver</a>
-                            	<a href="EditPelicula?id=${pelicula.idPelicula}">Modificar</a>
-                            	<a href="DestroyPelicula?id=${pelicula.idPelicula}">Eliminar</a>                            	
+                            	<a href="ShowPelicula?idPelicula=${pelicula.idPelicula}">Ver</a>
+                            	<a href="EditPelicula?idPelicula=${pelicula.idPelicula}">Modificar</a>
+                            	<a href="DestroyPelicula?idPelicula=${pelicula.idPelicula}">Eliminar</a>                            	
                             </td>
                           </tr>
                           </c:forEach>

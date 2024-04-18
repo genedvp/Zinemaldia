@@ -32,13 +32,15 @@ public class ShowPelicula extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
+		
 		ModeloPelicula mp = new ModeloPelicula();
 		
-		Pelicula pelicula = mp.getPelicula();
+		Pelicula pelicula = mp.getPelicula(idPelicula);
 		
 		request.setAttribute("pelicula", pelicula);
 		
-		response.getWriter().append("ShowPelicula.jsp").append(request.getContextPath());
+		request.getRequestDispatcher("ShowPelicula.jsp").forward(request, response);
 	}
 
 	/**
