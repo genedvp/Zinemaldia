@@ -19,7 +19,7 @@
         </nav>
     </header>
 	<div class="container">
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col">
                     <a href="IndexPelicula">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -33,13 +33,15 @@
                 <div class="col">
                     <form action="UpdatePelicula" method="POST">
                     	<input type="hidden" name="idPelicula" value="${pelicula.idPelicula}"/>
-						<p class="text-light">Titulo: </p><input type="text" name="titulo" value="${pelicula.titulo}"/>
-						<p class="text-light">Director: </p><input type="text" name="director" value="${pelicula.director}"/>
-						<p class="text-light">Descripcion: </p><input type="text" name="descripcion" value="${pelicula.descripcion}"/>
+						<p class="text-light">Titulo: </p><input type="text" class="form-control" name="titulo" value="${pelicula.titulo}"/>
+						<p class="text-light">Director: </p><input type="text" class="form-control" name="director" value="${pelicula.director}"/>
+						<p class="text-light">Descripcion: </p><input type="text" class="form-control" name="descripcion" value="${pelicula.descripcion}"/>
 				 <!--   <p class="text-light">Fecha de Producción: </p><input type="text" name="fechaProduccion" value="${pelicula.fechaProduccion}"/>  -->
-						<input type="submit" value="Guardar" name="Guardar">
+						<input type="submit" value="Guardar" name="Guardar" class="btn btn-secondary btn-block mt-4">
 					</form>
                 </div>
+                <div class="col"></div>
+                <div class="col"></div>
             </div>
         </div>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">

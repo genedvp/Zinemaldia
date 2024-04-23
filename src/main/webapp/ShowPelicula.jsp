@@ -19,7 +19,7 @@
           </nav>
     </header>
 	 <div class="container">
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col">
                     <a href="IndexPelicula">
 					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -29,8 +29,8 @@
 					</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div class="row mt-4">
+                <div class="col ">
                     <p class="text-light">Id: ${pelicula.idPelicula}</p>
                     <p class="text-light">Nombre: ${pelicula.titulo}</p>
                     <p class="text-light">Director: ${pelicula.director}</p>
