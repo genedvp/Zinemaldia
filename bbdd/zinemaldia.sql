@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-04-2024 a las 13:03:31
+-- Tiempo de generación: 25-04-2024 a las 09:08:44
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -81,9 +81,8 @@ CREATE TABLE `peliculas` (
 --
 
 INSERT INTO `peliculas` (`id_pelicula`, `titulo`, `director`, `descripcion`, `fecha_produccion`) VALUES
-(1, 'La Naranja Mecánica', 'Stanley Kubrick', 'jeje', 1971),
-(2, 'Donnie Darko', 'Richard Kelly', 'rarita', 2001),
-(3, 'Her', 'Spike Jonze', 'bonita', 2013);
+(1, 'La Naranja Mecánica', 'Stanley Kubriyuryck', 'inquietante ...jk', 1971),
+(3, 'Her', 'Spike jyjjy', 'bonita', 2013);
 
 -- --------------------------------------------------------
 
@@ -155,6 +154,16 @@ ALTER TABLE `salas`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `peliculas`
+--
+ALTER TABLE `peliculas`
+  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
