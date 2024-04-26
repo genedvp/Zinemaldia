@@ -2,24 +2,24 @@ package modelo.dao;
 
 public class Sala {
 
-	private int numeroSala;
-	private String descripccion;
+	private int id;
+	private String descripcion;
 	private int capacidad;
 
-	public int getNumeroSala() {
-		return numeroSala;
+	public int getId() {
+		return id;
 	}
 
-	public void setNumeroSala(int numeroSala) {
-		this.numeroSala = numeroSala;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getDescripccion() {
-		return descripccion;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDescripccion(String descripccion) {
-		this.descripccion = descripccion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public int getCapacidad() {
