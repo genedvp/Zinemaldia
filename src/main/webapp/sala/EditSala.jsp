@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Modificar pelicula</title>
+<title>Modificar Sala</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -16,7 +16,7 @@
 	<header>
 		<nav class="navbar bg-black">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="https://www.sansebastianfestival.com/">
+				<a class="navbar-brand" href="IndexPelicula">
 					<img src="img\Logo_zinemaldia.png" alt="Logo" width="68"
 					height="50" class="d-inline-block align-text-top">
 				</a>
@@ -26,7 +26,7 @@
 	<div class="container">
 		<div class="row mt-4">
 			<div class="col">
-				<a href="IndexPelicula"> <svg xmlns="http://www.w3.org/2000/svg"
+				<a href="IndexSala"> <svg xmlns="http://www.w3.org/2000/svg"
 						width="25" height="25" fill="white" class="bi bi-box-arrow-left"
 						viewBox="0 0 16 16">
   					<path fill-rule="evenodd"
@@ -39,20 +39,19 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<form action="UpdatePelicula" method="POST">
-					<input type="hidden" name="idPelicula"
-						value="${pelicula.idPelicula}" />
-					<p class="text-light">Titulo:</p>
-					<input type="text" class="form-control" name="titulo"
-						value="${pelicula.titulo}" />
-					<p class="text-light">Director:</p>
-					<input type="text" class="form-control" name="director"
-						value="${pelicula.director}" />
-					<p class="text-light">Descripcion:</p>
+				<form action="UpdateSala" method="POST">
+					<input type="hidden" name="idSala" value="${sala.id}" />
+					
+					<p class="text-light">Capacidad:</p>
+					<input type="text" class="form-control" name="capacidad"
+						value="${sala.capacidad}" />
+					
+					<p class="text-light">Descripción:</p>
 					<input type="text" class="form-control" name="descripcion"
-						value="${pelicula.descripcion}" />
-					<!--   <p class="text-light">Fecha de Producción: </p><input type="text" name="fechaProduccion" value="${pelicula.fechaProduccion}"/>  -->
-					<input type="submit" value="Guardar" name="Guardar"
+						value="${sala.descripcion}" /> 
+						
+						<input type="submit"
+						value="Guardar" name="Guardar"
 						class="btn btn-secondary btn-block mt-4">
 				</form>
 			</div>

@@ -40,7 +40,7 @@ public class ShowPelicula extends HttpServlet {
 		
 		request.setAttribute("pelicula", pelicula);
 		
-		request.getRequestDispatcher("ShowPelicula.jsp").forward(request, response);
+		request.getRequestDispatcher("pelicula/ShowPelicula.jsp").forward(request, response);
 	}
 
 	/**

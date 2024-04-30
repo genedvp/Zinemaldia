@@ -31,15 +31,15 @@ public class ShowSala extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int idSala = Integer.parseInt(request.getParameter("idSala"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		ModeloSala ms = new ModeloSala();
 		
-		Sala sala = ms.getSala(idSala);
+		Sala sala = ms.getSala(id);
 		
 		request.setAttribute("sala", sala);
 		
-		request.getRequestDispatcher("ShowSala.jsp").forward(request, response);
+		request.getRequestDispatcher("sala/ShowSala.jsp").forward(request, response);
 	}
 
 	/**

@@ -6,26 +6,23 @@ import java.util.ArrayList;
 
 public class Pelicula {
 
-	private int idPelicula;
+	private int id;
 	private String titulo;
 	private String director;
 	private String descripcion;
-	private Date fechaProduccion;
+	private int fechaProduccion;
 
 	/*
 	 * Aqui podriamos meter el nombre de los actores o como alternativa hacer una
 	 * clase, para especificar ademas que es: si es actor, productor
 	 */
-	private ArrayList<String> reparto = new ArrayList<String>();
-
-	SimpleDateFormat fmdt = new SimpleDateFormat("dd/MM/yyyy");
 
 	public int getIdPelicula() {
-		return idPelicula;
+		return id;
 	}
 
 	public void setIdPelicula(int idPelicula) {
-		this.idPelicula = idPelicula;
+		this.id = idPelicula;
 	}
 
 	public String getTitulo() {
@@ -52,22 +49,13 @@ public class Pelicula {
 		this.descripcion = descripcion;
 	}
 
-	public Date getFechaProduccion() {
+	public int getFechaProduccion() {
 		return fechaProduccion;
 	}
 
-	public void setFechaProduccion(Date fechaProduccion) {
+	public void setFechaProduccion(int fechaProduccion) {
 		this.fechaProduccion = fechaProduccion;
 	}
-
-	public ArrayList<String> getReparto() {
-		return reparto;
-	}
-
-	public void setReparto(ArrayList<String> reparto) {
-		this.reparto = reparto;
-	}
-
 
 
 }

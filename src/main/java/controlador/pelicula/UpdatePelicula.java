@@ -42,7 +42,7 @@ public class UpdatePelicula extends HttpServlet {
 		String titulo = request.getParameter("titulo");
 		String director = request.getParameter("director");
 		String descripcion = request.getParameter("descripcion");
-	//	String fechaProduccion = request.getParameter("fehaProduccion");
+		int fechaProduccion = Integer.parseInt(request.getParameter("fechaProduccion"));
 		
 		//guardar peli en bbdd
 		Pelicula pelicula = new Pelicula();
@@ -50,13 +50,13 @@ public class UpdatePelicula extends HttpServlet {
 		pelicula.setTitulo(titulo);
 		pelicula.setDirector(director);
 		pelicula.setDescripcion(descripcion);
-	//	pelicula.setFechaProduccion(fechaProduccion);
+		pelicula.setFechaProduccion(fechaProduccion);
 		
 		ModeloPelicula mp = new ModeloPelicula();
 		mp.updatePelicula(pelicula);
 		
 		//enviar a index peliculas
-		response.sendRedirect("IndexPelicula");
+		response.sendRedirect("pelicula/IndexPelicula");
 		
 	}
 

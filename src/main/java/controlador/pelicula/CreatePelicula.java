@@ -27,7 +27,7 @@ public class CreatePelicula extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("CreatePelicula.jsp").forward(request, response);
+		request.getRequestDispatcher("pelicula/CreatePelicula.jsp").forward(request, response);
 	}
 
 	/**

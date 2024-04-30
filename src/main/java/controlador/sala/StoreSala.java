@@ -50,7 +50,7 @@ public class StoreSala extends HttpServlet {
 		ms.insertSala(sala);
 		
 		//abrir inicio redirigiendo
-		response.sendRedirect("IndexSala");
+		response.sendRedirect("sala/IndexSala");
 		
 	}
 

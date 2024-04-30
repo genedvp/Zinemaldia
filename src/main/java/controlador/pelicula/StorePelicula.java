@@ -41,20 +41,20 @@ public class StorePelicula extends HttpServlet {
 		String titulo = request.getParameter("titulo");
 		String director = request.getParameter("director");
 		String descripcion = request.getParameter("descripcion");
-	//  Date fechaProduccion = request.getParameter("fechaProduccion");	
+		int fechaProduccion = Integer.parseInt(request.getParameter("fechaProduccion"));	
 		
 		//almacenar pelicula
 		Pelicula pelicula = new Pelicula();
 		pelicula.setTitulo(titulo);
 		pelicula.setDirector(director);
 		pelicula.setDescripcion(descripcion);
-	//	pelicula.setFechaProduccion(fechaProduccion);
+		pelicula.setFechaProduccion(fechaProduccion);
 		
 		ModeloPelicula mp = new ModeloPelicula();
 		mp.insertPelicula(pelicula);
 		
 		//abrir inicio redirigiendo
-		response.sendRedirect("IndexPelicula");
+		response.sendRedirect("pelicula/IndexPelicula");
 		
 	}
 

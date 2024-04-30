@@ -22,6 +22,7 @@ public class IndexPelicula extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
     public IndexPelicula() {
         super();
         // TODO Auto-generated constructor stub
@@ -31,13 +32,14 @@ public class IndexPelicula extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		ModeloPelicula mp = new ModeloPelicula();
 		
 		ArrayList<Pelicula> peliculas = mp.getTodos();
 		
 		request.setAttribute("peliculas", peliculas);
 		
-		request.getRequestDispatcher("IndexPelicula.jsp").forward(request, response);
+		request.getRequestDispatcher("pelicula/IndexPelicula.jsp").forward(request, response);
 	}
 
 	/**

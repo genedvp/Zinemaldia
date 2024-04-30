@@ -22,7 +22,7 @@ public class ModeloPelicula extends Conector{
 	                pelicula.setTitulo(rs.getString("titulo"));
 	                pelicula.setDirector(rs.getString("director"));
 	                pelicula.setDescripcion(rs.getString("descripcion"));
-//	                pelicula.setFechaProduccion(rs.getDate("fecha_produccion"));
+	                pelicula.setFechaProduccion(rs.getInt("fecha_produccion"));
 	                
 	                peliculas.add(pelicula);
 	            }
@@ -47,7 +47,7 @@ public class ModeloPelicula extends Conector{
 			    pelicula.setTitulo(rs.getString("titulo"));
 			    pelicula.setDirector(rs.getString("director"));
 			    pelicula.setDescripcion(rs.getString("descripcion"));
-//         		pelicula.setFechaProduccion(rs.getDate("fecha_produccion"));
+         		pelicula.setFechaProduccion(rs.getInt("fecha_produccion"));
 			    
 			    return pelicula;
 			
@@ -73,13 +73,13 @@ public class ModeloPelicula extends Conector{
 
 	public int updatePelicula(Pelicula pelicula) {
 	     try {
-	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ?, descripcion = ? WHERE id_pelicula = ?");
+	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ?, descripcion = ?, fecha_produccion=?, WHERE id_pelicula = ?");
 	         
 	         pst.setString(1, pelicula.getTitulo());
 	         pst.setString(2, pelicula.getDirector());
 	         pst.setString(3, pelicula.getDescripcion());
-	       //pst.setDate(4, pelicula.getFechaProduccion()); 
-	         pst.setInt(4, pelicula.getIdPelicula());
+	         pst.setInt(4, pelicula.getFechaProduccion()); 
+	         pst.setInt(5, pelicula.getIdPelicula());
 	        
 	         return pst.executeUpdate();
 	     } catch (SQLException e) {
@@ -90,10 +90,11 @@ public class ModeloPelicula extends Conector{
 	
 	 public void insertPelicula(Pelicula pelicula) {
 		    try {
-		        PreparedStatement pst = this.conexion.prepareStatement("INSERT INTO peliculas (titulo, director, descripcion) VALUES (?, ?, ?)");
+		        PreparedStatement pst = this.conexion.prepareStatement("INSERT INTO peliculas (titulo, director, descripcion, fecha_produccion) VALUES (?, ?, ?, ?)");
 		        pst.setString(1, pelicula.getTitulo());
 		        pst.setString(2, pelicula.getDirector());
 		        pst.setString(3, pelicula.getDescripcion());
+		        pst.setInt(4, pelicula.getFechaProduccion()); 
 		        pst.execute();
 		    } catch (SQLException e) {
 		        e.printStackTrace();

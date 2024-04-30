@@ -41,7 +41,7 @@ public class EditPelicula extends HttpServlet {
 		request.setAttribute("pelicula", pelicula);
 
 		// abrir vista
-		request.getRequestDispatcher("EditPelicula.jsp").forward(request, response);
+		request.getRequestDispatcher("pelicula/EditPelicula.jsp").forward(request, response);
 			
 	}
 

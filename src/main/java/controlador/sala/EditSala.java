@@ -31,17 +31,17 @@ public class EditSala extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// recibir la id
-		int idSala = Integer.parseInt(request.getParameter("idSala"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		// conseguir la sala
 		ModeloSala ms = new ModeloSala();
-		Sala sala = ms.getSala(idSala);
+		Sala sala = ms.getSala(id);
 		
 		// enviar peli a la vista
 		request.setAttribute("sala", sala);
 
 		// abrir vista
-		request.getRequestDispatcher("EditSala.jsp").forward(request, response);
+		request.getRequestDispatcher("sala/EditSala.jsp").forward(request, response);
 			
 	}
 

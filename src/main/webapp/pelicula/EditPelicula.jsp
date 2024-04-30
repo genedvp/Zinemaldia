@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Crear Pelicula</title>
+<title>Modificar pelicula</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -40,19 +39,25 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<form action="StorePelicula" method="POST">
+				<form action="UpdatePelicula" method="POST">
 					<input type="hidden" name="idPelicula"
 						value="${pelicula.idPelicula}" />
-					<p class="text-light mt-3">Titulo:</p>
+						
+					<p class="text-light">Titulo:</p>
 					<input type="text" class="form-control" name="titulo"
 						value="${pelicula.titulo}" />
-					<p class="text-light mt-3">Director:</p>
+						
+					<p class="text-light">Director:</p>
 					<input type="text" class="form-control" name="director"
 						value="${pelicula.director}" />
-					<p class="text-light mt-3">Descripcion:</p>
+						
+					<p class="text-light">Descripcion:</p>
 					<input type="text" class="form-control" name="descripcion"
 						value="${pelicula.descripcion}" />
-					<!--   <p class="text-light mt-3">Fecha de Producción: </p><input type="text" name="fechaProduccion" value="${pelicula.fechaProduccion}"/>  -->
+						
+					<p class="text-light">Fecha de Producción: </p>
+					<input type="text" name="fechaProduccion" value="${pelicula.fechaProduccion}"/>
+					
 					<input type="submit" value="Guardar" name="Guardar"
 						class="btn btn-secondary btn-block mt-4">
 				</form>

@@ -37,7 +37,7 @@ public class DestroyPelicula extends HttpServlet {
 		mp.deletePelicula(idPelicula);
 		
 		//volver al index
-		response.sendRedirect("IndexPelicula");
+		response.sendRedirect("pelicula/IndexPelicula");
 	}
 
 	/**

@@ -16,7 +16,7 @@ public class ModeloSala extends Conector{
             ResultSet rs = st.executeQuery("SELECT * FROM salas");
             while (rs.next()) {
                 Sala sala = new Sala();
-                sala.setId(rs.getInt("id"));
+                sala.setId(rs.getInt("id_sala"));
                 sala.setDescripcion(rs.getString("descripcion"));
                 sala.setCapacidad(rs.getInt("capacidad"));
                 salas.add(sala);
@@ -31,13 +31,13 @@ public class ModeloSala extends Conector{
 
     public Sala getSala(int id) {
         try {
-            PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM salas WHERE id = ?");
+            PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM salas WHERE id_sala = ?");
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
                 Sala sala = new Sala();
-                sala.setId(rs.getInt("id"));
+                sala.setId(rs.getInt("id_sala"));
                 sala.setDescripcion(rs.getString("descripcion"));
                 sala.setCapacidad(rs.getInt("capacidad"));
                 return sala;
@@ -50,7 +50,7 @@ public class ModeloSala extends Conector{
 
     public boolean deleteSala(int id) {
         try {
-            PreparedStatement pst = this.conexion.prepareStatement("DELETE FROM salas WHERE id = ?");
+            PreparedStatement pst = this.conexion.prepareStatement("DELETE FROM salas WHERE id_sala = ?");
             pst.setInt(1, id);
             pst.execute();
             return true;
@@ -62,7 +62,7 @@ public class ModeloSala extends Conector{
 
     public int updateSala(Sala sala) {
         try {
-            PreparedStatement pst = this.conexion.prepareStatement("UPDATE salas SET descripcion = ?, capacidad = ? WHERE id = ?");
+            PreparedStatement pst = this.conexion.prepareStatement("UPDATE salas SET descripcion = ?, capacidad = ? WHERE id_sala = ?");
             pst.setString(1, sala.getDescripcion());
             pst.setInt(2, sala.getCapacidad());
             pst.setInt(3, sala.getId());
