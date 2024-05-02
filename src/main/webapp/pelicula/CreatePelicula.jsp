@@ -42,7 +42,7 @@
 			<div class="col">
 				<form action="StorePelicula" method="POST">
 					<input type="hidden" name="idPelicula"
-						value="${pelicula.idPelicula}" />
+						value="${pelicula.id}" />
 					<p class="text-light mt-3">Titulo:</p>
 					<input type="text" class="form-control" name="titulo"
 						value="${pelicula.titulo}" />
@@ -53,7 +53,9 @@
 					<input type="text" class="form-control" name="descripcion"
 						value="${pelicula.descripcion}" />
 					<p class="text-light mt-3">Año de Producción: </p>
-					<input type="text" name="fechaProduccion" value="${pelicula.fechaProduccion}"/>
+					<input type="text" class="form-control" name="fechaProduccion" 
+						value="${pelicula.fechaProduccion}"/>
+						<br>
 					<input type="submit" value="Guardar" name="Guardar"
 						class="btn btn-secondary btn-block mt-4">
 				</form>

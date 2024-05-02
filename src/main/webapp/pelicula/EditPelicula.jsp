@@ -41,23 +41,24 @@
 			<div class="col">
 				<form action="UpdatePelicula" method="POST">
 					<input type="hidden" name="idPelicula"
-						value="${pelicula.idPelicula}" />
-						
+						value="${pelicula.id}" />
+						<br>
 					<p class="text-light">Titulo:</p>
 					<input type="text" class="form-control" name="titulo"
 						value="${pelicula.titulo}" />
-						
+						<br>
 					<p class="text-light">Director:</p>
 					<input type="text" class="form-control" name="director"
 						value="${pelicula.director}" />
-						
+						<br>
 					<p class="text-light">Descripcion:</p>
 					<input type="text" class="form-control" name="descripcion"
 						value="${pelicula.descripcion}" />
-						
-					<p class="text-light">Fecha de Producción: </p>
-					<input type="text" name="fechaProduccion" value="${pelicula.fechaProduccion}"/>
-					
+						<br>
+					<p class="text-light">Año de Producción: </p>
+					<input type="text" class="form-control" name="fechaProduccion" 
+						value="${pelicula.fechaProduccion}"/>
+						<br>
 					<input type="submit" value="Guardar" name="Guardar"
 						class="btn btn-secondary btn-block mt-4">
 				</form>

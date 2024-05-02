@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CRUD PELICULAS</title>
+<title>Crear Emision</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -16,7 +17,7 @@
 	<header>
 		<nav class="navbar bg-black">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="https://www.sansebastianfestival.com/">
+				<a class="navbar-brand" href="IndexPelicula">
 					<img src="img\Logo_zinemaldia.png" alt="Logo" width="68"
 					height="50" class="d-inline-block align-text-top">
 				</a>
@@ -26,7 +27,7 @@
 	<div class="container">
 		<div class="row mt-4">
 			<div class="col">
-				<a href="IndexPelicula"> <svg xmlns="http://www.w3.org/2000/svg"
+				<a href="IndexEmision"> <svg xmlns="http://www.w3.org/2000/svg"
 						width="25" height="25" fill="white" class="bi bi-box-arrow-left"
 						viewBox="0 0 16 16">
   					<path fill-rule="evenodd"
@@ -37,29 +38,35 @@
 				</a>
 			</div>
 		</div>
-		<div class="row mt-4">
-			<div class="col ">
-				<br>
-				<p class="text-light"><span class="fw-bold">Id: </span>${sala.id}</p>
-				<br>
-				<p class="text-light"><span class="fw-bold">Capacidad: </span>${sala.capacidad}</p>
-				<br>
-				<p class="text-light"><span class="fw-bold">Descripción: </span>${sala.descripcion}</p>
-				<br>
-				<a href="EditSala?id=${sala.id}"> <svg
-						xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-						fill="white" class="bi bi-pencil" viewBox="0 0 16 16">
-  							<path
-							d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-						</svg>
-				</a> <a href="DestroyPelicula?idPelicula=${sala.id}"> <svg
-						xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-						fill="white" class="bi bi-eraser-fill" viewBox="0 0 16 16">
-  							<path
-							d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828zm.66 11.34L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293z" />
-						</svg>
-				</a>
+		<div class="row">
+			<div class="col">
+				<form action="StoreEmision" method="POST">
+					<input type="hidden" name="emision"
+						value="${emision.id}" />
+						<br>
+					<p class="text-light mt-3">Pelicula:</p>
+					<input type="text" class="form-control" name="pelicula"
+						value="${pelicula.id}" />
+						<br>
+					<p class="text-light mt-3">Emisión:</p>
+					<input type="text" class="form-control" name="sala"
+						value="${sala.id}" />
+						<br>
+					<p class="text-light mt-3">Fecha:</p>
+					<input type="text" class="form-control" name="fecha"
+						value="${emision.fecha}" />
+						<br>
+					<p class="text-light mt-3">Hora: </p>
+					<input type="text" class="form-control" name="hora"
+						value="${emision.hora}" />
+						<br>
+						
+					<input type="submit" value="Guardar" name="Guardar"
+						class="btn btn-secondary btn-block mt-4">
+				</form>
 			</div>
+			<div class="col"></div>
+			<div class="col"></div>
 		</div>
 	</div>
 	<link

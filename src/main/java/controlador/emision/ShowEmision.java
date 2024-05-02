@@ -1,29 +1,26 @@
-package controlador.pelicula;
+package controlador.emision;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.ModeloPelicula;
-import modelo.dao.Pelicula;
+import modelo.dao.Emision;
+import modelo.dao.ModeloEmision;
 
 /**
- * Servlet implementation class IndexPelicula
+ * Servlet implementation class ShowEmision
  */
-@WebServlet("/IndexPelicula")
-public class IndexPelicula extends HttpServlet {
+@WebServlet("/ShowEmision")
+public class ShowEmision extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	
-    public IndexPelicula() {
+    public ShowEmision() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,14 +30,16 @@ public class IndexPelicula extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ModeloPelicula mp = new ModeloPelicula();
+		int id =  Integer.parseInt(request.getParameter("id"));
 		
-		ArrayList<Pelicula> peliculas = mp.getTodos();
+		ModeloEmision me = new ModeloEmision();
 		
-		request.setAttribute("peliculas", peliculas);
+		Emision emision = me.getEmision(id);
 		
-		request.getRequestDispatcher("pelicula/IndexPelicula.jsp").forward(request, response);
-	
+		request.setAttribute("emision", emision);
+		
+		request.getRequestDispatcher("emision/ShowEmision.jsp").forward(request, response);
+		
 	}
 
 	/**

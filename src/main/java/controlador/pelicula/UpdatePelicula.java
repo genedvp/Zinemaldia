@@ -46,7 +46,7 @@ public class UpdatePelicula extends HttpServlet {
 		
 		//guardar peli en bbdd
 		Pelicula pelicula = new Pelicula();
-		pelicula.setIdPelicula(idPelicula);
+		pelicula.setId(idPelicula);
 		pelicula.setTitulo(titulo);
 		pelicula.setDirector(director);
 		pelicula.setDescripcion(descripcion);

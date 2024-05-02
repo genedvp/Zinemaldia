@@ -17,12 +17,12 @@ public class Pelicula {
 	 * clase, para especificar ademas que es: si es actor, productor
 	 */
 
-	public int getIdPelicula() {
+	public int getId() {
 		return id;
 	}
 
-	public void setIdPelicula(int idPelicula) {
-		this.id = idPelicula;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {

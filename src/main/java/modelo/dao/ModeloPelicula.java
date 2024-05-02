@@ -18,7 +18,7 @@ public class ModeloPelicula extends Conector{
 	            ResultSet rs = st.executeQuery("SELECT * FROM peliculas");
 	            while (rs.next()) {
 	                Pelicula pelicula = new Pelicula();
-	                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
+	                pelicula.setId(rs.getInt("id_pelicula"));
 	                pelicula.setTitulo(rs.getString("titulo"));
 	                pelicula.setDirector(rs.getString("director"));
 	                pelicula.setDescripcion(rs.getString("descripcion"));
@@ -43,7 +43,7 @@ public class ModeloPelicula extends Conector{
 
 			if (rs.next()) {
 				Pelicula pelicula = new Pelicula();
-				pelicula.setIdPelicula(rs.getInt("id_pelicula"));
+				pelicula.setId(rs.getInt("id_pelicula"));
 			    pelicula.setTitulo(rs.getString("titulo"));
 			    pelicula.setDirector(rs.getString("director"));
 			    pelicula.setDescripcion(rs.getString("descripcion"));
@@ -73,13 +73,13 @@ public class ModeloPelicula extends Conector{
 
 	public int updatePelicula(Pelicula pelicula) {
 	     try {
-	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ?, descripcion = ?, fecha_produccion=?, WHERE id_pelicula = ?");
+	         PreparedStatement pst = this.conexion.prepareStatement("UPDATE peliculas SET titulo = ?, director = ?, descripcion = ?, fecha_produccion = ? WHERE id_pelicula = ?");
 	         
 	         pst.setString(1, pelicula.getTitulo());
 	         pst.setString(2, pelicula.getDirector());
 	         pst.setString(3, pelicula.getDescripcion());
 	         pst.setInt(4, pelicula.getFechaProduccion()); 
-	         pst.setInt(5, pelicula.getIdPelicula());
+	         pst.setInt(5, pelicula.getId());
 	        
 	         return pst.executeUpdate();
 	     } catch (SQLException e) {

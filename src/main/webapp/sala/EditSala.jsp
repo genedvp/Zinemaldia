@@ -35,21 +35,23 @@
 							d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
 					</svg>
 				</a>
+				<br>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 				<form action="UpdateSala" method="POST">
-					<input type="hidden" name="idSala" value="${sala.id}" />
-					
+					<input type="hidden" name="idSala" 
+						value="${sala.id}" />
+					<br>
 					<p class="text-light">Capacidad:</p>
 					<input type="text" class="form-control" name="capacidad"
 						value="${sala.capacidad}" />
-					
+					<br>
 					<p class="text-light">Descripción:</p>
 					<input type="text" class="form-control" name="descripcion"
 						value="${sala.descripcion}" /> 
-						
+					<br>	
 						<input type="submit"
 						value="Guardar" name="Guardar"
 						class="btn btn-secondary btn-block mt-4">

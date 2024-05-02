@@ -1,29 +1,23 @@
-package controlador.pelicula;
+package controlador.emision;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.ModeloPelicula;
-import modelo.dao.Pelicula;
-
 /**
- * Servlet implementation class IndexPelicula
+ * Servlet implementation class CreateEmision
  */
-@WebServlet("/IndexPelicula")
-public class IndexPelicula extends HttpServlet {
+@WebServlet("/CreateEmision")
+public class CreateEmision extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	
-    public IndexPelicula() {
+    public CreateEmision() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +26,8 @@ public class IndexPelicula extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ModeloPelicula mp = new ModeloPelicula();
-		
-		ArrayList<Pelicula> peliculas = mp.getTodos();
-		
-		request.setAttribute("peliculas", peliculas);
-		
-		request.getRequestDispatcher("pelicula/IndexPelicula.jsp").forward(request, response);
-	
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("emision/CreateEmision.jsp").forward(request, response);
 	}
 
 	/**
