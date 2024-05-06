@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.dao.Emision;
 import modelo.dao.ModeloEmision;
+import modelo.dao.ModeloPelicula;
+import modelo.dao.ModeloSala;
+import modelo.dao.Pelicula;
+import modelo.dao.Sala;
 
 /**
  * Servlet implementation class UpdateEmision
@@ -42,9 +46,14 @@ public class UpdateEmision extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
-		int idSala = Integer.parseInt(request.getParameter("idSala"));
-		SimpleDateFormat fechaFormat = new SimpleDateFormat("yyyy-MM-dd");
+		ModeloPelicula mp = new ModeloPelicula();
+		ModeloSala ms = new ModeloSala();
+		Pelicula pelicula = new Pelicula();
+		Sala sala = new Sala();
+
+		pelicula = mp.getPelicula(Integer.parseInt(request.getParameter("idPelicula")));
+		sala = ms.getSala(Integer.parseInt(request.getParameter("idSala")));
+		SimpleDateFormat fechaFormat = new SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat fechaHora = new SimpleDateFormat("HH:mm");
 		String obtenerFecha = request.getParameter("fecha");
 		String obtenerHora = request.getParameter("hora");
@@ -54,8 +63,8 @@ public class UpdateEmision extends HttpServlet {
 			Date fecha = fechaFormat.parse(obtenerFecha);
 			Date hora = fechaHora.parse(obtenerHora);
 			Emision emision = new Emision();
-			emision.setIdPelicula(idPelicula);
-			emision.setIdSala(idSala);
+			emision.setPelicula(pelicula);
+			emision.setSala(sala);
 			emision.setFecha(fecha);
 			emision.setHora(hora);
 			ModeloEmision me = new ModeloEmision();
@@ -66,7 +75,7 @@ public class UpdateEmision extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("pelicula/IndexPelicula");
+		response.sendRedirect("emision/IndexEmision");
 				
 	}
 

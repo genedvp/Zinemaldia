@@ -110,8 +110,8 @@
 						<c:forEach items="${emisiones}" var="emision">
 							<tr class="table-active">
 								<td>${emision.id}</td>
-								<td>${emision.idPelicula}</td>
-								<td>${emision.idSala}</td>
+								<td>${emision.pelicula.titulo}</td>
+								<td>${emision.sala.descripcion}</td>
 								<td>${emision.fecha}</td>
 								<td>${emision.hora}</td>
 								<td><a

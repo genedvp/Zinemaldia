@@ -52,7 +52,7 @@
 						value="${sala.id}" />
 						<br>
 					<p class="text-light mt-3">Fecha:</p>
-					<input type="text" class="form-control" name="fecha"
+					<input type="Date" class="form-control" name="fecha"
 						value="${emision.fecha}" />
 						<br>
 					<p class="text-light mt-3">Hora: </p>

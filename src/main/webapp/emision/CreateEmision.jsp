@@ -41,23 +41,39 @@
 		<div class="row">
 			<div class="col">
 				<form action="StoreEmision" method="POST">
+				
 					<input type="hidden" name="emision"
 						value="${emision.id}" />
 						<br>
 					<p class="text-light mt-3">Pelicula:</p>
-					<input type="text" class="form-control" name="pelicula"
-						value="${pelicula.id}" />
+    				<select class="form-select" id="inputGroupSelect01" name="idPelicula">
+        				<option selected>Elige una película</option>
+        				<!-- Itera sobre las películas disponibles -->
+        				<c:forEach items="${peliculas}" var="pelicula">
+            				<option value="${pelicula.id}">${pelicula.titulo}</option>
+       					</c:forEach>
+    				</select>
+						
 						<br>
-					<p class="text-light mt-3">Emisión:</p>
-					<input type="text" class="form-control" name="sala"
-						value="${sala.id}" />
+					<p class="text-light mt-3">Sala:</p>
+					<select class="form-select" id="inputGroupSelect01" name="idSala">
+        				<option selected>Elige una sala</option>
+        				<!-- Itera sobre las salas disponibles -->
+        				<c:forEach items="${salas}" var="sala">
+            				<option value="${sala.id}">${sala.descripcion}</option>
+       					</c:forEach>
+    				</select>	
+
 						<br>
 					<p class="text-light mt-3">Fecha:</p>
-					<input type="text" class="form-control" name="fecha"
+					<input type="Date" class="form-control" name="fecha"
+						required
 						value="${emision.fecha}" />
 						<br>
+						<!-- restricción  horaria 16:00 - 24:00 -->
 					<p class="text-light mt-3">Hora: </p>
-					<input type="text" class="form-control" name="hora"
+					<input type="time" class="form-control" name="hora"
+					min="16:00" max="24:00" required	
 						value="${emision.hora}" />
 						<br>
 						

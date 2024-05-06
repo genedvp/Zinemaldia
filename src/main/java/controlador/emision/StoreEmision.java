@@ -1,10 +1,8 @@
 package controlador.emision;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.dao.Emision;
 import modelo.dao.ModeloEmision;
+import modelo.dao.ModeloPelicula;
+import modelo.dao.ModeloSala;
+import modelo.dao.Pelicula;
+import modelo.dao.Sala;
 
 /**
  * Servlet implementation class StoreEmision
@@ -43,30 +45,47 @@ public class StoreEmision extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
-		int idSala = Integer.parseInt(request.getParameter("idSala"));
+		ModeloPelicula mp = new ModeloPelicula();
+		ModeloSala ms = new ModeloSala();
+		Pelicula pelicula = new Pelicula();
+		Sala sala = new Sala();
+		
+		pelicula = mp.getPelicula(Integer.parseInt(request.getParameter("idPelicula")));
+		sala = ms.getSala(Integer.parseInt(request.getParameter("idSala")));
+		String fechaString = request.getParameter("fecha");
+		String horaString = request.getParameter("hora");
+		
+		System.out.println(fechaString+" "+horaString);
+		
 		SimpleDateFormat fechaFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat fechaHora = new SimpleDateFormat("HH:mm");
-		String obtenerFecha = request.getParameter("fecha");
-		String obtenerHora = request.getParameter("hora");
+		Date fecha = null;
+		Date hora = null;
 		
 		try {
 			
-			Date fecha = fechaFormat.parse(obtenerFecha);
-			Date hora = fechaHora.parse(obtenerHora);
+			fecha = fechaFormat.parse(fechaString);
+			hora = fechaHora.parse(horaString);
+			
+		} catch (Exception e) {
+			System.out.println("error parse fecha/hora");
+		}
+
 			Emision emision = new Emision();
-			emision.setIdPelicula(idPelicula);
-			emision.setIdSala(idSala);
+			
+			emision.setPelicula(pelicula);
+			
+			emision.setSala(sala);
+			
 			emision.setFecha(fecha);
+			
 			emision.setHora(hora);
+			
 			ModeloEmision me = new ModeloEmision();
+			
 			me.insertEmision(emision);
 			
-		} catch (ParseException e) {
-			System.out.println("error al parsear fecha/hora para guardar emision");
-			e.printStackTrace();
-		}
-		response.sendRedirect("pelicula/IndexPelicula");
+			response.sendRedirect("emision/IndexEmision");
 				
 	}
 
