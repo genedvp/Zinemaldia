@@ -56,7 +56,7 @@ public class UpdatePelicula extends HttpServlet {
 		mp.updatePelicula(pelicula);
 		
 		//enviar a index peliculas
-		response.sendRedirect("pelicula/IndexPelicula");
+		response.sendRedirect("IndexPelicula");
 		
 	}
 

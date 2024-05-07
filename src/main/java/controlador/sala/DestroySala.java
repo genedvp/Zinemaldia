@@ -37,7 +37,7 @@ public class DestroySala extends HttpServlet {
 		ms.deleteSala(idSala);
 		
 		//volver al index
-		response.sendRedirect("sala/IndexSala");
+		response.sendRedirect("IndexSala");
 	}
 
 	/**

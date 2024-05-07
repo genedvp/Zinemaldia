@@ -17,7 +17,7 @@
 	<header>
 		<nav class="navbar bg-black">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="IndexPelicula">
+				<a class="navbar-brand" href="pelicula/IndexPelicula">
 					<img src="img\Logo_zinemaldia.png" alt="Logo" width="68"
 					height="50" class="d-inline-block align-text-top">
 				</a>

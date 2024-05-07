@@ -33,9 +33,10 @@ public class DestroyEmision extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		ModeloEmision me = new ModeloEmision();
+		
 		me.deleteEmision(id);
 		
-		response.sendRedirect("emision/IndexPelicula");
+		response.sendRedirect("IndexEmision");
 		
 	}
 

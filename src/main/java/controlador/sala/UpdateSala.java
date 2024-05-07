@@ -52,7 +52,7 @@ public class UpdateSala extends HttpServlet {
 		ms.updateSala(sala);
 
 		// Redirigir a la página de inicio de salas
-		response.sendRedirect("sala/IndexSala");
+		response.sendRedirect("IndexSala");
 
 		
 	}

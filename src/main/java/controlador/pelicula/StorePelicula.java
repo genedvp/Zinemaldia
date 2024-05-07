@@ -54,7 +54,7 @@ public class StorePelicula extends HttpServlet {
 		mp.insertPelicula(pelicula);
 		
 		//abrir inicio redirigiendo
-		response.sendRedirect("pelicula/IndexPelicula");
+		response.sendRedirect("IndexPelicula");
 		
 	}
 

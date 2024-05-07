@@ -32,12 +32,24 @@ public class DestroyPelicula extends HttpServlet {
 		//recibir id
 		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
 		
-		//eliminar peli
 		ModeloPelicula mp = new ModeloPelicula();
 		mp.deletePelicula(idPelicula);
-		
 		//volver al index
-		response.sendRedirect("pelicula/IndexPelicula");
+		response.sendRedirect("IndexPelicula");
+
+		
+		/*
+		//eliminar peli
+		ModeloPelicula mp = new ModeloPelicula();
+		if(!modelo.tieneEmision(idPelicula)) {
+			mp.deletePelicula(idPelicula);
+			
+			//volver al index
+			response.sendRedirect("IndexPelicula");
+		}else {
+			response.sendRedirect("IndexPelicula?mensaje=no_eliminada");
+		}*/
+		
 	}
 
 	/**

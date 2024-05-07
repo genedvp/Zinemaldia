@@ -50,32 +50,43 @@ public class UpdateEmision extends HttpServlet {
 		ModeloSala ms = new ModeloSala();
 		Pelicula pelicula = new Pelicula();
 		Sala sala = new Sala();
-
+		
 		pelicula = mp.getPelicula(Integer.parseInt(request.getParameter("idPelicula")));
 		sala = ms.getSala(Integer.parseInt(request.getParameter("idSala")));
-		SimpleDateFormat fechaFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String fechaString = request.getParameter("fecha");
+		String horaString = request.getParameter("hora");
+		
+		System.out.println(fechaString+" "+horaString);
+		
+		SimpleDateFormat fechaFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat fechaHora = new SimpleDateFormat("HH:mm");
-		String obtenerFecha = request.getParameter("fecha");
-		String obtenerHora = request.getParameter("hora");
+		Date fecha = null;
+		Date hora = null;
 		
 		try {
 			
-			Date fecha = fechaFormat.parse(obtenerFecha);
-			Date hora = fechaHora.parse(obtenerHora);
-			Emision emision = new Emision();
-			emision.setPelicula(pelicula);
-			emision.setSala(sala);
-			emision.setFecha(fecha);
-			emision.setHora(hora);
-			ModeloEmision me = new ModeloEmision();
-			me.insertEmision(emision);
+			fecha = fechaFormat.parse(fechaString);
+			hora = fechaHora.parse(horaString);
 			
-		} catch (ParseException e) {
-			System.out.println("error al parsear fecha/hora para guardar emision");
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("error parse fecha/hora");
 		}
 
-		response.sendRedirect("emision/IndexEmision");
+			Emision emision = new Emision();
+			
+			emision.setPelicula(pelicula);
+			
+			emision.setSala(sala);
+			
+			emision.setFecha(fecha);
+			
+			emision.setHora(hora);
+			
+			ModeloEmision me = new ModeloEmision();
+			
+			me.updateEmision(emision);
+			
+			response.sendRedirect("IndexEmision");
 				
 	}
 

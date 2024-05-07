@@ -85,7 +85,7 @@ public class StoreEmision extends HttpServlet {
 			
 			me.insertEmision(emision);
 			
-			response.sendRedirect("emision/IndexEmision");
+			response.sendRedirect("IndexEmision");
 				
 	}
 

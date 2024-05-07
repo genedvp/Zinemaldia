@@ -16,7 +16,7 @@
 	<header>
 		<nav class="navbar bg-black">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="https://www.sansebastianfestival.com/">
+				<a class="navbar-brand" href="pelicula/IndexPelicula">
 					<img src="img\Logo_zinemaldia.png" alt="Logo" width="68"
 					height="50" class="d-inline-block align-text-top">
 				</a>
@@ -26,7 +26,7 @@
 	<div class="container">
 		<div class="row mt-4">
 			<div class="col">
-				<a href="IndexPelicula"> <svg xmlns="http://www.w3.org/2000/svg"
+				<a href="IndexEmision"> <svg xmlns="http://www.w3.org/2000/svg"
 						width="25" height="25" fill="white" class="bi bi-box-arrow-left"
 						viewBox="0 0 16 16">
   					<path fill-rule="evenodd"
@@ -40,23 +40,39 @@
 		<div class="row">
 			<div class="col">
 				<form action="UpdateEmision" method="POST">
+				
 					<input type="hidden" name="emision"
 						value="${emision.id}" />
 						<br>
 					<p class="text-light mt-3">Pelicula:</p>
-					<input type="text" class="form-control" name="pelicula"
-						value="${pelicula.id}" />
+    				<select class="form-select" id="inputGroupSelect01" name="idPelicula">
+        				<option value="${emision.pelicula.id}" selected>${emision.pelicula.titulo}</option>
+        				<!-- Itera sobre las películas disponibles -->
+        				<c:forEach items="${peliculas}" var="pelicula">
+            				<option value="${pelicula.id}">${pelicula.titulo}</option>
+       					</c:forEach>
+    				</select>
+						
 						<br>
-					<p class="text-light mt-3">Emisión:</p>
-					<input type="text" class="form-control" name="sala"
-						value="${sala.id}" />
+					<p class="text-light mt-3">Sala:</p>
+					<select class="form-select" id="inputGroupSelect01" name="idSala">
+        				<option value="${emision.sala.id}" selected>${emision.sala.id}</option>
+        				<!-- Itera sobre las salas disponibles -->
+        				<c:forEach items="${salas}" var="sala">
+            				<option value="${sala.id}">${sala.descripcion}</option>
+       					</c:forEach>
+    				</select>	
+
 						<br>
 					<p class="text-light mt-3">Fecha:</p>
 					<input type="Date" class="form-control" name="fecha"
+						required
 						value="${emision.fecha}" />
 						<br>
+						<!-- restricción  horaria 16:00 - 24:00 -->
 					<p class="text-light mt-3">Hora: </p>
-					<input type="text" class="form-control" name="hora"
+					<input type="time" class="form-control" name="hora"
+					min="16:00" max="24:00" required	
 						value="${emision.hora}" />
 						<br>
 					<input type="submit" value="Guardar" name="Guardar"
