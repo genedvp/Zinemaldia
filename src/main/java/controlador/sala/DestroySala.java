@@ -30,7 +30,7 @@ public class DestroySala extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		//recibir id
-		int idSala = Integer.parseInt(request.getParameter("idSala"));
+		int idSala = Integer.parseInt(request.getParameter("id"));
 		
 		//eliminar sala
 		ModeloSala ms = new ModeloSala();
