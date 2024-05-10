@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Crear Emision</title>
+<title>Crear Usuario</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,7 +16,7 @@
 	<header>
 		<nav class="navbar bg-black">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="pelicula/IndexPelicula">
+				<a class="navbar-brand" href="IndexUsuario">
 					<img src="img\Logo_zinemaldia.png" alt="Logo" width="68"
 					height="50" class="d-inline-block align-text-top">
 				</a>
@@ -27,7 +26,7 @@
 	<div class="container">
 		<div class="row mt-4">
 			<div class="col">
-				<a href="IndexEmision"> <svg xmlns="http://www.w3.org/2000/svg"
+				<a href="IndexUsuario"> <svg xmlns="http://www.w3.org/2000/svg"
 						width="25" height="25" fill="white" class="bi bi-box-arrow-left"
 						viewBox="0 0 16 16">
   					<path fill-rule="evenodd"
@@ -40,45 +39,25 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<form action="StoreEmision" method="POST">
-				
-					<input type="hidden" name="emision"
-						value="${emision.id}" />
-						<br>
-					<p class="text-light mt-3">Pelicula:</p>
+				<form action="StoreUsuario" method="POST">
+					<input type="hidden" name="id" 
+						value="${usuario.id}" />
 					
-    				<select class="form-select" id="inputGroupSelect01" name="idPelicula">
-        				<option selected>Elige una película</option>
-        				<!-- Itera sobre las películas disponibles -->
-        				<c:forEach items="${peliculas}" var="pelicula">
-            				<option value="${pelicula.id}">${pelicula.titulo}</option>
-       					</c:forEach>
-    				</select>
+					<p class="text-light mt-3">Nombre:</p>
+					<input type="text" class="form-control" name="nombre"
+						value="${usuario.nombre}" />
 						
-						<br>
-					<p class="text-light mt-3">Sala:</p>
-					<select class="form-select" id="inputGroupSelect01" name="idSala">
-        				<option selected>Elige una sala</option>
-        				<!-- Itera sobre las salas disponibles -->
-        				<c:forEach items="${salas}" var="sala">
-            				<option value="${sala.id}">${sala.descripcion}</option>
-       					</c:forEach>
-    				</select>	
-
-						<br>
-					<p class="text-light mt-3">Fecha:</p>
-					<input type="Date" class="form-control" name="fecha"
-						required
-						value="${emision.fecha}" />
-						<br>
-						<!-- restricción  horaria 16:00 - 24:00 -->
-					<p class="text-light mt-3">Hora: </p>
-					<input type="time" class="form-control" name="hora"
-					min="16:00" max="24:00" required	
-						value="${emision.hora}" />
-						<br>
-						
-					<input type="submit" value="Guardar" name="Guardar"
+					<p class="text-light mt-3">Contraseña:</p>
+					<input type="text" class="form-control" name="contra"
+						value="${usuario.contra}" /> 
+					
+					<p class="text-light mt-3">Rol:</p>
+					<select class="form-select" id="inputRol" name="rol">
+    					<option value="usuario" ${usuario.rol.equals("usuario") ? "selected" : ""}>Usuario</option>
+    					<option value="administrador" ${usuario.rol.equals("administrador") ? "selected" : ""}>Administrador</option>
+					</select>
+						<input type="submit"
+						value="Guardar" name="Guardar"
 						class="btn btn-secondary btn-block mt-4">
 				</form>
 			</div>
