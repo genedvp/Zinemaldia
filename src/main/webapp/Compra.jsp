@@ -66,65 +66,58 @@
 	        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación de Compra</h1>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
-	      <ul class="nav nav-tabs" id="myTab" role="tablist">
-	  		<li class="nav-item" role="presentation">
-	   			 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Iniciar Sesión</button>
-			</li>
-	 		<li class="nav-item" role="presentation">
+	      <div class="nav nav-tabs" id="myTab" role="tablist">
+	   			<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Iniciar Sesión</button>
 	    		<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Registrarse</button>
-	  		</li>
-	  	 </ul>
-	  	 <div class="modal-body">
-		       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-			      	<form action="StoreCompra" method="POST">
-				      	<input type="hidden" value="${emision.id}" name="idEmision"/>
-				  		<div class="mb-3">
-				    		<label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-				    		<input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp">
-				   			<div id="emailHelp" class="form-text">ejemplo@ejemplocorreo.com</div>
-				  		</div>
-				 		<div class="mb-3">
-				    		<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-				    		<input type="password" class="form-control" id="contra" name="contra">
-				  		</div>
-				  		<div class="modal-footer">
-	        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-	       				<button type="submit" class="btn btn-secondary">Comprar</button>
-	     				</div>
-					</form>
-				</div>
+		</div>
+	  	 <div class="tab-content m-3" id="myTabContent">
+				       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+					      	<form action="StoreCompra" method="POST">
+						      	<input type="hidden" value="${emision.id}" name="idEmision"/>
+						  		<div class="mb-3">
+						    		<label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+						    		<input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp">
+						   			<div id="emailHelp" class="form-text">ejemplo@ejemplocorreo.com</div>
+						  		</div>
+						 		<div class="mb-3">
+						    		<label for="exampleInputPassword1" class="form-label">Contraseña</label>
+						    		<input type="password" class="form-control" id="contra" name="contra">
+						  		</div>
+						  		<div class="modal-footer">
+			        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			       				<button type="submit" class="btn btn-secondary">Comprar</button>
+			     				</div>
+							</form>
+						</div>
+			      	<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+			      			<form action="StoreCompra" method="POST">
+						      	<input type="hidden" value="${emision.id}" name="idEmision"/>
+						  		<input type="hidden" name="id" 
+									value="${usuario.id}" />
+								
+								<p class="mt-3">Nombre:</p>
+								<input type="text" class="form-control" name="nombre"
+									value="${usuario.nombre}" />
+									
+								<p class="mt-3">Contraseña:</p>
+								<input type="text" class="form-control" name="contra"
+									value="${usuario.contra}" /> 
+								
+								<p class="mt-3">Rol:</p>
+								<select class="form-select" id="inputRol" name="rol">
+			    					<option value="usuario" ${usuario.rol.equals("usuario") ? "selected" : ""}>Usuario</option>
+			    					<option value="administrador" ${usuario.rol.equals("administrador") ? "selected" : ""}>Administrador</option>
+								</select>
+									<input type="submit"
+									value="Guardar" name="Guardar"
+									class="btn btn-secondary btn-block mt-4">
+								<div class="modal-footer">
+			        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			       				<button type="submit" class="btn btn-secondary">Comprar</button>
+			     				</div>
+							</form>
+				  </div>
 			</div>
-
-		<div class="modal-body">
-	      	<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-	      			<form action="StoreCompra" method="POST">
-				      	<input type="hidden" value="${emision.id}" name="idEmision"/>
-				  		<input type="hidden" name="id" 
-							value="${usuario.id}" />
-						
-						<p class="mt-3">Nombre:</p>
-						<input type="text" class="form-control" name="nombre"
-							value="${usuario.nombre}" />
-							
-						<p class="mt-3">Contraseña:</p>
-						<input type="text" class="form-control" name="contra"
-							value="${usuario.contra}" /> 
-						
-						<p class="mt-3">Rol:</p>
-						<select class="form-select" id="inputRol" name="rol">
-	    					<option value="usuario" ${usuario.rol.equals("usuario") ? "selected" : ""}>Usuario</option>
-	    					<option value="administrador" ${usuario.rol.equals("administrador") ? "selected" : ""}>Administrador</option>
-						</select>
-							<input type="submit"
-							value="Guardar" name="Guardar"
-							class="btn btn-secondary btn-block mt-4">
-						<div class="modal-footer">
-	        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-	       				<button type="submit" class="btn btn-secondary">Comprar</button>
-	     				</div>
-					</form>
-			 </div>
-		  </div>
 		</div>
 	  </div>
 	</div>
