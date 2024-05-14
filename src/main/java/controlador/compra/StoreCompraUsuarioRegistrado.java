@@ -86,14 +86,18 @@ public class StoreCompraUsuarioRegistrado extends HttpServlet {
 	    	factura.setHora(horaActual);
 	    	
 	    	mc.insertFactura(factura);
+	    	
+	    	response.sendRedirect("CompraEmision?msg=CompraStored");
 	
 		} else {
 			
 		    // Los datos de inicio de sesión no coinciden con ningún usuario en la base de datos
 			System.out.println("usuario "+ correo +" "+ contra +" no coincide con los datos de la BBDD");
+			response.sendRedirect("CompraEmision?msg=CompraNotStored");
 		}
 		
-		response.sendRedirect("CompraEmision");
+		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

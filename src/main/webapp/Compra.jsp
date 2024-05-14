@@ -19,6 +19,18 @@
 			</div>
 		</nav>
 	</header>
+	<c:if test="${msg=='CompraStored'}">
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>¡Enhorabuena!</strong> ¡Tu compra ha sido realizada exitosamente!
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+    </c:if>
+    <c:if test="${msg=='CompraNotStored'}">
+	    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>error</strong> ¡Tu compra NO se ha podido realizar!
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+   	 </c:if>
 	<div class="row m-3">
 		<div class=" text-center text-light">
 			<blockquote class="blockquote">
@@ -34,7 +46,7 @@
 	<div class="row">
 		<div class="col-2"></div>
 			<div class="col-8 mb-4 d-flex justify-content-center">
-				<div class="card mt-4" style="width: 100%; max-width: 800px; height: 100%; max-height:600px">
+				<div class="card mt-4" style="width: 100%; max-width: 800px;">
 			  		<div class="row g-0">
 			    		<div class="col"><img src="img/img${loop.index}.jpg"  style="height:300px" class="img-fluid rounded-start" alt="imagen${loop.index}"></div>
 			    			<div class="col">

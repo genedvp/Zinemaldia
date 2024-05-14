@@ -33,6 +33,8 @@ public class CompraEmision extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setAttribute("msg", request.getParameter("msg"));
+		
 		ModeloEmision me = new ModeloEmision();
 		
 		ArrayList<Emision> emisiones= me.getTodas();
