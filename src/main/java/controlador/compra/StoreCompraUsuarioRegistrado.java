@@ -73,6 +73,7 @@ public class StoreCompraUsuarioRegistrado extends HttpServlet {
 		if (usuarioExistente) {
 			
 	        ModeloCompra mc = new ModeloCompra();
+	        
 	    	Factura factura = new Factura();
 	    	factura.setEmision(emision);
 	    	factura.setUsuario(usuarioComprobado);
@@ -92,7 +93,6 @@ public class StoreCompraUsuarioRegistrado extends HttpServlet {
 		} else {
 			
 		    // Los datos de inicio de sesión no coinciden con ningún usuario en la base de datos
-			System.out.println("usuario "+ correo +" "+ contra +" no coincide con los datos de la BBDD");
 			response.sendRedirect("CompraEmision?msg=CompraNotStored");
 		}
 		

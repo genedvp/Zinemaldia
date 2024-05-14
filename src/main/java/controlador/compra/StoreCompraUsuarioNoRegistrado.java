@@ -85,9 +85,6 @@ public class StoreCompraUsuarioNoRegistrado extends HttpServlet {
 			System.out.println(usuario.toString());
 			System.out.println(emision.toString());
 			
-			//teniendo el id de usaurio de usuario o el usuriao con el di
-			//teniendo el id de emision
-			
 			ModeloCompra mc = new ModeloCompra();
 	    	Factura factura = new Factura();
 	    	factura.setEmision(emision);
@@ -102,10 +99,13 @@ public class StoreCompraUsuarioNoRegistrado extends HttpServlet {
 	    	factura.setHora(horaActual);
 	    	
 	    	mc.insertFactura(factura);
-
+	    	
+	    	response.sendRedirect("CompraEmision?msg=CompraStored");
+	    	
+		} else {
+			
+			response.sendRedirect("CompraEmision?msg=CompraNotStored");
 		}
-
-		response.sendRedirect("CompraEmision");
 
 	}
 
