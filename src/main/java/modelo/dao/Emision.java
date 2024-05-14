@@ -49,5 +49,11 @@ public class Emision {
 	public void setHora(Date hora) {
 		this.hora = hora;
 	}
+
+	@Override
+	public String toString() {
+		return "Emision [id=" + id + ", pelicula=" + pelicula + ", sala=" + sala + ", fecha=" + fecha + ", hora=" + hora
+				+ "]";
+	}
 }
 
