@@ -1,4 +1,4 @@
-package controlador.pelicula;
+package controlador.usuario;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.ModeloPelicula;
+import modelo.dao.ModeloUsuario;
+import modelo.dao.Usuario;
 
 /**
- * Servlet implementation class DestroyPelicula
+ * Servlet implementation class UpdateUsuario
  */
-@WebServlet("/DestroyPelicula")
-public class DestroyPelicula extends HttpServlet {
+@WebServlet("/UpdateUsuario")
+public class UpdateUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DestroyPelicula() {
+    public UpdateUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,31 +29,33 @@ public class DestroyPelicula extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		//recibir id
-		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
-
-		//eliminar peli
-		ModeloPelicula mp = new ModeloPelicula();
-		if(!mp.tieneEmision(idPelicula)) {
+				
+				//recibir
+				int idUsuario = Integer.parseInt(request.getParameter("id"));
+				String nombre = request.getParameter("nombre");
+				String contra = request.getParameter("contra");
+				String rol = request.getParameter("rol");
+				
+				//asignar
+				Usuario usuario = new Usuario();
+				usuario.setId(idUsuario);
+				usuario.setNombre(nombre);
+				usuario.setContra(contra);
+				usuario.setRol(rol);
 			
-			mp.deletePelicula(idPelicula);
-			
-			//volver al index
-			response.sendRedirect("IndexPelicula?msg=peliculaDelete");
-			
-		}else {
-			
-			response.sendRedirect("IndexPelicula?msg=peliculaNotDelete");
-
-		}
+				//guardar en bbdd
+				ModeloUsuario mu = new ModeloUsuario();
+				mu.updateUsuario(usuario);
+				
+				//redirigir al index
+				response.sendRedirect("IndexUsuario");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

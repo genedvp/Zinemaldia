@@ -34,11 +34,12 @@ public class IndexPelicula extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setAttribute("msg", request.getParameter("msg"));
+		
 		ModeloPelicula mp = new ModeloPelicula();
 		
 		ArrayList<Pelicula> peliculas = mp.getTodos();
 		
-		//request.setAttribute("mensaje", response);
 		request.setAttribute("peliculas", peliculas);
 		
 		request.getRequestDispatcher("pelicula/IndexPelicula.jsp").forward(request, response);

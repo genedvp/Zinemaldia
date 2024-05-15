@@ -100,5 +100,25 @@ public class ModeloPelicula extends Conector{
 		        e.printStackTrace();
 		    }
 		}
+
+	public boolean tieneEmision(int idPelicula) {
+		
+		try {
+		PreparedStatement pst = this.conexion.prepareStatement("SELECT id_pelicula FROM emisiones WHERE id_pelicula=?");
+        pst.setInt(1, idPelicula);
+        ResultSet rs = pst.executeQuery();
+
+			if (rs.next()) {
+				Pelicula pelicula = new Pelicula();
+				pelicula.setId(rs.getInt("id_pelicula"));
+			    return true;
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
 

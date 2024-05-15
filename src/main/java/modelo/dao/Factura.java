@@ -3,13 +3,20 @@ package modelo.dao;
 import java.util.Date;
 
 public class Factura {
-
+	
+	private int id;
 	private Usuario usuario;
 	private Emision emision;
 	private Double precioTotal;
 	private Date fecha;
 	private Date hora;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Usuario getUsuario() {
 		return usuario;
 	}

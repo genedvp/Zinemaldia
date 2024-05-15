@@ -28,6 +28,18 @@
 			</div>
 		</nav>
 	</header>
+	<c:if test="${msg=='peliculaDelete'}">
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>¡Enhorabuena!</strong> ¡La pelicula ha sido eliminada exitosamente!
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+    </c:if>
+    <c:if test="${msg=='peliculaNotDelete'}">
+	    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>error</strong> ¡La pelicula NO se ha podido eliminar porque está asignada a una pelicula!
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+   	 </c:if>
 	<div class="container-fluid text-center">
 		<div class="row">
 			<div id="barraLateral"

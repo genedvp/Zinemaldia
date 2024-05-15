@@ -1,4 +1,4 @@
-package controlador.pelicula;
+package controlador.usuario;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.ModeloPelicula;
+import modelo.dao.ModeloSala;
+import modelo.dao.ModeloUsuario;
+import modelo.dao.Sala;
+import modelo.dao.Usuario;
 
 /**
- * Servlet implementation class DestroyPelicula
+ * Servlet implementation class EditUsuario
  */
-@WebServlet("/DestroyPelicula")
-public class DestroyPelicula extends HttpServlet {
+@WebServlet("/EditUsuario")
+public class EditUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DestroyPelicula() {
+    public EditUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,31 +31,27 @@ public class DestroyPelicula extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		//recibir id
-		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
+		
+		// recibir la id
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		// conseguir la sala
+		ModeloUsuario mu = new ModeloUsuario();
+		Usuario usuario = mu.getUsuario(id);
+		
+		// enviar peli a la vista
+		request.setAttribute("Usuario", usuario);
 
-		//eliminar peli
-		ModeloPelicula mp = new ModeloPelicula();
-		if(!mp.tieneEmision(idPelicula)) {
+		// abrir vista
+		request.getRequestDispatcher("usuario/EditUsuario.jsp").forward(request, response);
 			
-			mp.deletePelicula(idPelicula);
-			
-			//volver al index
-			response.sendRedirect("IndexPelicula?msg=peliculaDelete");
-			
-		}else {
-			
-			response.sendRedirect("IndexPelicula?msg=peliculaNotDelete");
-
-		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

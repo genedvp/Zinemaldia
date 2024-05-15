@@ -138,7 +138,40 @@ public class ModeloUsuario extends Conector{
 
 	    return usuario;
 	}
-	
+
+	public boolean deleteUsuario(int id) {
+        try {
+            PreparedStatement pst = this.conexion.prepareStatement("DELETE FROM usuarios WHERE usuario=?");
+            pst.setInt(1, id);
+            pst.execute();
+            
+            return true;
+            
+        } catch (SQLException e) {
+        	
+            e.printStackTrace();
+            return false;
+            
+        }
+		
+	}
+    public int updateUsuario(Usuario usuario) {
+        try {
+            PreparedStatement pstmt = this.conexion.prepareStatement("UPDATE usuarios SET nombre=?, apellidos=?, correo_electronico=?, contrasenia=?, rol=? WHERE id_usuario = ?");
+
+            pstmt.setString(1, usuario.getNombre());
+	        pstmt.setString(2, usuario.getApellidos());
+	        pstmt.setString(3, usuario.getCorreo());
+	        pstmt.setString(4, usuario.getContra());
+	        pstmt.setString(5, usuario.getRol());
+
+            return pstmt.executeUpdate();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 	
 }
 
