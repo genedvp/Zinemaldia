@@ -47,6 +47,11 @@ public class Factura {
 	public void setHora(Date hora) {
 		this.hora = hora;
 	}
+	@Override
+	public String toString() {
+		return "Factura [id=" + id + ", usuario=" + usuario + ", emision=" + emision + ", precioTotal=" + precioTotal
+				+ ", fecha=" + fecha + ", hora=" + hora + "]";
+	}
 	
 	
 }

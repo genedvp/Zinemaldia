@@ -119,21 +119,24 @@
 	                            </div>
 	                            <div class="tab-pane fade" id="profile-tab-pane${loop.index}" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 	                                <form action="StoreCompraUsuarioNoRegistrado" method="POST">
+	                                    
 	                                    <input type="hidden" value="${emision.id}" name="idEmision" />
+	                                    
 	                                    <p class="mt-3">Nombre:</p>
 	                                    <input type="text" class="form-control" name="nombre" value="${usuario.nombre}" />
+	                                    
 	                                    <p class="mt-3">Apellidos:</p>
 	                                    <input type="text" class="form-control" name="apellidos" value="${usuario.apellidos}" />
+	                                    
 	                                    <p class="mt-3">Correo Electrónico</p>
 	                                    <input type="email" class="form-control" id="contra" name="correo" value="${usuario.correo}" />
 	                                    <div id="emailHelp" class="form-text">ejemplo@ejemplocorreo.com</div>
+	                                    
 	                                    <p class="mt-3">Contraseña:</p>
 	                                    <input type="password" class="form-control" name="contra" value="${usuario.contra}" />
-	                                    <p class="mt-3">Rol:</p>
-	                                    <select class="form-select" id="inputRol" name="rol">
-	                                        <option value="usuario" ${usuario.rol.equals("usuario") ? "selected" : ""}>Usuario</option>
-	                                        <option value="administrador" ${usuario.rol.equals("administrador") ? "selected" : ""}>Administrador</option>
-	                                    </select>
+	                                    
+	                                    <input type="hidden" value="${usuario.rol.equals("usuario")}" name="rol"/>
+	                                    
 	                                    <div class="modal-footer">
 	                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 	                                        <button type="submit" class="btn btn-danger bg-gradient">Comprar</button>

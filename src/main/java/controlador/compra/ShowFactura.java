@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.Emision;
-import modelo.dao.ModeloEmision;
+import modelo.dao.Factura;
+import modelo.dao.ModeloCompra;
 
 /**
- * Servlet implementation class CompraEmision
+ * Servlet implementation class ShowFactura
  */
-@WebServlet("/CompraEmision")
-public class CompraEmision extends HttpServlet {
+@WebServlet("/ShowFactura")
+public class ShowFactura extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CompraEmision() {
+    public ShowFactura() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +32,15 @@ public class CompraEmision extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setAttribute("msg", request.getParameter("msg"));
+		int idUsuario = Integer.parseInt(request.getParameter("id"));
 		
-		ModeloEmision me = new ModeloEmision();
+		ModeloCompra mc = new ModeloCompra();
 		
-		ArrayList<Emision> emisiones= me.getTodas();
+		ArrayList<Factura> facturas = mc.getTodasUsuario(idUsuario);
 		
-		request.setAttribute("emisiones", emisiones);
+		request.setAttribute("facturas", facturas);
 		
-		request.getRequestDispatcher("usuario/Compra.jsp").forward(request, response);
+		request.getRequestDispatcher("usuario/ShowFactura.jsp").forward(request, response);
 	}
 
 	/**

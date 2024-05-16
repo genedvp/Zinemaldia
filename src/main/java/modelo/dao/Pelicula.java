@@ -1,9 +1,5 @@
 package modelo.dao;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.ArrayList;
-
 public class Pelicula {
 
 	private int id;
@@ -55,6 +51,12 @@ public class Pelicula {
 
 	public void setFechaProduccion(int fechaProduccion) {
 		this.fechaProduccion = fechaProduccion;
+	}
+
+	@Override
+	public String toString() {
+		return "Pelicula [id=" + id + ", titulo=" + titulo + ", director=" + director + ", descripcion=" + descripcion
+				+ ", fechaProduccion=" + fechaProduccion + "]";
 	}
 
 

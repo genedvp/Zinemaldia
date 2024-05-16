@@ -27,7 +27,7 @@ public class ModeloUsuario extends Conector{
 	            usuario.setCorreo(rs.getString("correo_electronico"));
 	            usuario.setRol(rs.getString("rol"));
 	            //usuario.setRegistrado(rs.getInt("registrado"));
-	            usuario.setId(rs.getInt("id_usuario"));
+	            usuario.setIdUsuario(rs.getInt("id_usuario"));
 	            
 	            usuarios.add(usuario);
 	            
@@ -123,7 +123,7 @@ public class ModeloUsuario extends Conector{
 
 	        if (rs.next()) {
 	            usuario = new Usuario();
-	            usuario.setId(rs.getInt("id_usuario"));
+	            usuario.setIdUsuario(rs.getInt("id_usuario"));
 	            usuario.setNombre(rs.getString("nombre"));
 	            usuario.setApellidos(rs.getString("apellidos"));
 	            usuario.setContra(rs.getString("contrasenia"));
@@ -141,7 +141,7 @@ public class ModeloUsuario extends Conector{
 
 	public boolean deleteUsuario(int id) {
         try {
-            PreparedStatement pst = this.conexion.prepareStatement("DELETE FROM usuarios WHERE usuario=?");
+            PreparedStatement pst = this.conexion.prepareStatement("DELETE FROM usuarios WHERE id_usuario=?");
             pst.setInt(1, id);
             pst.execute();
             

@@ -30,4 +30,9 @@ public class Sala {
 		this.capacidad = capacidad;
 	}
 
+	@Override
+	public String toString() {
+		return "Sala [id=" + id + ", descripcion=" + descripcion + ", capacidad=" + capacidad + "]";
+	}
+
 }

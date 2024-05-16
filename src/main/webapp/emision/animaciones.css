@@ -1,0 +1,25 @@
+.selecionado {
+	transition: easy-in-out .3s;
+	background-color: #dee2e6 !important;
+	border-radius: 8px;
+	margin-left: -9px;
+	padding: 6px;
+}
+
+.selecionado:hover {
+	background-color: #dee2e6 !important;
+	padding: 6px;
+	border-radius: 10px;
+	transition: easy-in .2s;
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
+.scala:hover {
+	transform: scale(1.05);
+	transition: easy-in .2s;
+}
+
+#barraLateral {
+	min-height: 100vh;
+}

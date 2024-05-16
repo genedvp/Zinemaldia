@@ -40,16 +40,18 @@ public class StoreUsuario extends HttpServlet {
 		
 		//recibir
 		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		String correo = request.getParameter("correo");
 		String contra = request.getParameter("contra");
 		String rol = request.getParameter("rol");
 		
 		//asignar
 		Usuario usuario = new Usuario();
 		usuario.setNombre(nombre);
+		usuario.setApellidos(apellidos);
+		usuario.setCorreo(correo);
 		usuario.setContra(contra);
 		usuario.setRol(rol);
-		
-		//comprobar que no exista en la bbdd
 		
 		//guardar en bbdd
 		ModeloUsuario mu = new ModeloUsuario();

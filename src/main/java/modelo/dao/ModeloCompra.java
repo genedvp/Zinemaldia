@@ -14,7 +14,7 @@ public class ModeloCompra extends Conector{
 	    try {
 	        PreparedStatement pst = this.conexion.prepareStatement("INSERT INTO facturas (id_emision, id_usuario, fecha_compra, hora_compra) VALUES (?, ?, ?, ?)");
 	        pst.setInt(1, factura.getEmision().getId());
-	        pst.setInt(2, factura.getUsuario().getId());
+	        pst.setInt(2, factura.getUsuario().getIdUsuario());
 	        //pst.setDouble(3, factura.getPrecioTotal());
 	        
             // Formatear la fecha en el formato yyyy-MM-dd
@@ -89,7 +89,7 @@ public class ModeloCompra extends Conector{
         try {
             PreparedStatement pst = this.conexion.prepareStatement("UPDATE facturas SET id_emision = ?, id_usuario = ?, fecha_compra = ?, hora_compra = ? WHERE id_factura = ?");
             pst.setInt(1, factura.getEmision().getId());
-            pst.setInt(2, factura.getUsuario().getId());
+            pst.setInt(2, factura.getUsuario().getIdUsuario());
             
             // Formatear la fecha en el formato yyyy-MM-dd
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -134,7 +134,7 @@ public class ModeloCompra extends Conector{
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("id_usuario"));
+                usuario.setIdUsuario(rs.getInt("id_usuario"));
                 // Completar con otros atributos de Usuario
                 return usuario;
             }
@@ -143,5 +143,33 @@ public class ModeloCompra extends Conector{
         }
         return null;
     }
+	public ArrayList<Factura> getTodasUsuario(int idUsuario) {
+		
+		ArrayList<Factura> facturas = new ArrayList<>();
+		
+		String sql ="SELECT * FROM facturas where id_usuario=?";
+		
+        try {
+            PreparedStatement st = conexion.prepareStatement(sql);
+            st.setInt(1, idUsuario);
+            ResultSet rs = st.executeQuery();
+            ModeloEmision me = new ModeloEmision();
+            ModeloUsuario mu = new ModeloUsuario();
+            
+            while (rs.next()) {
+                Factura factura = new Factura();
+                factura.setId(rs.getInt("id_factura"));
+                factura.setFecha(rs.getDate("fecha_compra"));
+                factura.setHora(rs.getTime("hora_compra"));
+                factura.setEmision(me.getEmision(rs.getInt("id_emision")));
+                factura.setUsuario(mu.getUsuario(rs.getInt("id_usuario")));
+                facturas.add(factura);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return facturas;
+    }
 }
+
 

@@ -29,26 +29,32 @@ public class UpdateUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-				//recibir
-				int idUsuario = Integer.parseInt(request.getParameter("id"));
-				String nombre = request.getParameter("nombre");
-				String contra = request.getParameter("contra");
-				String rol = request.getParameter("rol");
-				
-				//asignar
-				Usuario usuario = new Usuario();
-				usuario.setId(idUsuario);
-				usuario.setNombre(nombre);
-				usuario.setContra(contra);
-				usuario.setRol(rol);
 			
-				//guardar en bbdd
-				ModeloUsuario mu = new ModeloUsuario();
-				mu.updateUsuario(usuario);
+		
+		//recibir
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		String correo = request.getParameter("correo");
+		String contra = request.getParameter("contra");
+		String rol = request.getParameter("rol");
 				
-				//redirigir al index
-				response.sendRedirect("IndexUsuario");
+		//asignar
+		Usuario usuario = new Usuario();
+		usuario.setNombre(nombre);
+		usuario.setApellidos(apellidos);
+		usuario.setCorreo(correo);
+		usuario.setContra(contra);
+		usuario.setRol(rol);
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		usuario.setIdUsuario(id);
+			
+		//guardar en bbdd
+		ModeloUsuario mu = new ModeloUsuario();
+		mu.updateUsuario(usuario);
+				
+		//redirigir al index
+		response.sendRedirect("IndexUsuario");
 	}
 
 	/**

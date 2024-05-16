@@ -38,27 +38,29 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
+			<div class="col text-light">
 				<form action="StoreUsuario" method="POST">
-					<input type="hidden" name="id" 
-						value="${usuario.id}" />
-					
-					<p class="text-light mt-3">Nombre:</p>
-					<input type="text" class="form-control" name="nombre"
-						value="${usuario.nombre}" />
-						
-					<p class="text-light mt-3">Contraseña:</p>
-					<input type="text" class="form-control" name="contra"
-						value="${usuario.contra}" /> 
-					
-					<p class="text-light mt-3">Rol:</p>
-					<select class="form-select" id="inputRol" name="rol">
-    					<option value="usuario" ${usuario.rol.equals("usuario") ? "selected" : ""}>Usuario</option>
-    					<option value="administrador" ${usuario.rol.equals("administrador") ? "selected" : ""}>Administrador</option>
-					</select>
-						<input type="submit"
-						value="Guardar" name="Guardar"
-						class="btn btn-secondary btn-block mt-4">
+	                
+	                <p class="mt-3">Nombre:</p>
+	                <input type="text" class="form-control" name="nombre" value="${usuario.nombre}" />
+	                
+	                <p class="mt-3">Apellidos:</p>
+	                <input type="text" class="form-control" name="apellidos" value="${usuario.apellidos}" />
+	                
+	                <p class="mt-3" required>Correo Electrónico</p>
+	                <input type="email" class="form-control" id="correo" name="correo" value="${usuario.correo}" />
+	                <div id="emailHelp" class="form-text text-light">ejemplo@ejemplocorreo.com</div>
+	                
+	                <p class="mt-3" required>Contraseña:</p>
+	                <input type="password" class="form-control" name="contra" value="${usuario.contra}" />
+	                
+	                <p class="mt-3">Rol:</p>
+	                <select class="form-select" id="inputRol" name="rol" required>
+	                	<option value="usuario" ${usuario.rol.equals("usuario") ? "selected" : ""}>Usuario</option>
+	                	<option value="administrador" ${usuario.rol.equals("administrador") ? "selected" : ""}>Administrador</option>
+	                </select>
+	                <br>
+	                <button type="submit" class="btn btn-danger bg-gradient">Guardar</button>
 				</form>
 			</div>
 			<div class="col"></div>

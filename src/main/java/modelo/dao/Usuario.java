@@ -68,14 +68,6 @@ public class Usuario {
 		this.registrado = registrado;
 	}
 
-	public int getId() {
-		return idUsuario;
-	}
-
-	public void setId(int id) {
-		this.idUsuario = id;
-	}
-
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", contra=" + contra
