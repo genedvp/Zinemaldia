@@ -21,13 +21,13 @@ public class ModeloUsuario extends Conector{
 	        while (rs.next()) {
 	        	
 	        	Usuario usuario = new Usuario();
+	        	usuario.setIdUsuario(rs.getInt("id_usuario"));
 	            usuario.setNombre(rs.getString("nombre"));
-	            usuario.setNombre(rs.getString("apellidos"));
+	            usuario.setApellidos(rs.getString("apellidos"));
 	            usuario.setContra(rs.getString("contrasenia"));
 	            usuario.setCorreo(rs.getString("correo_electronico"));
 	            usuario.setRol(rs.getString("rol"));
 	            //usuario.setRegistrado(rs.getInt("registrado"));
-	            usuario.setIdUsuario(rs.getInt("id_usuario"));
 	            
 	            usuarios.add(usuario);
 	            

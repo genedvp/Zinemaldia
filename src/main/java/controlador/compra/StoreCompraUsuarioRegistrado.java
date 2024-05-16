@@ -88,12 +88,12 @@ public class StoreCompraUsuarioRegistrado extends HttpServlet {
 	    	
 	    	mc.insertFactura(factura);
 	    	
-	    	response.sendRedirect("usuario/CompraEmision?msg=CompraStored");
+	    	response.sendRedirect("CompraEmision?msg=CompraStored");
 	
 		} else {
 			
 		    // Los datos de inicio de sesión no coinciden con ningún usuario en la base de datos
-			response.sendRedirect("usuario/CompraEmision?msg=CompraNotStored");
+			response.sendRedirect("CompraEmision?msg=CompraNotStored");
 		}
 		
 		

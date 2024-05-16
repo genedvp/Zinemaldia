@@ -100,11 +100,11 @@ public class StoreCompraUsuarioNoRegistrado extends HttpServlet {
 	    	
 	    	mc.insertFactura(factura);
 	    	
-	    	response.sendRedirect("usuario/CompraEmision?msg=CompraStored");
+	    	response.sendRedirect("CompraEmision?msg=CompraStored");
 	    	
 		} else {
 			
-			response.sendRedirect("usuario/CompraEmision?msg=CompraNotStored");
+			response.sendRedirect("CompraEmision?msg=CompraNotStored");
 		}
 
 	}
